@@ -24,33 +24,37 @@ const BISMILLAH = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرّ
 export default function QuranSurah() {
   const { id } = useParams(); // Start page from URL
   const navigate = useNavigate();
-  const { setLastRead } = useApp();
+    const { setLastReadSurah } = useApp();
+    
+    const [loading, setLoading] = useState(true);
+    const [pageData, setPageData] = useState<Ayah[]>([]);
+    const [currentPage, setCurrentPage] = useState(Number(id) || 1);
+    const [showTajwid, setShowTajwid] = useState(true);
+    const [showGuide, setShowGuide] = useState(false);
+    const [viewMode, setViewMode] = useState<'text' | 'image'>('image'); // Default to image as user seems to prefer it
   
-  const [loading, setLoading] = useState(true);
-  const [pageData, setPageData] = useState<Ayah[]>([]);
-  const [currentPage, setCurrentPage] = useState(Number(id) || 1);
-  const [showTajwid, setShowTajwid] = useState(true);
-  const [showGuide, setShowGuide] = useState(false);
-  const [viewMode, setViewMode] = useState<'text' | 'image'>('image'); // Default to image as user seems to prefer it
-
-  useEffect(() => {
-    fetchPageData(currentPage);
-    window.scrollTo(0, 0);
-  }, [currentPage]);
-
-  const fetchPageData = async (page: number) => {
-    setLoading(true);
-    try {
-      const response = await fetch(`https://api.alquran.cloud/v1/page/${page}/quran-tajweed`);
-      const data = await response.json();
-      
-      if (data.code === 200) {
-        setPageData(data.data.ayahs);
+    useEffect(() => {
+      fetchPageData(currentPage);
+      window.scrollTo(0, 0);
+    }, [currentPage]);
+  
+    const fetchPageData = async (page: number) => {
+      setLoading(true);
+      try {
+        const response = await fetch(`https://api.alquran.cloud/v1/page/${page}/quran-tajweed`);
+        const data = await response.json();
         
-        // Update last read (using first ayah of the page)
-        const firstAyah = data.data.ayahs[0];
-        setLastRead(firstAyah.surah.number, firstAyah.numberInSurah);
-      }
+        if (data.code === 200) {
+          setPageData(data.data.ayahs);
+          
+          // Update last read (using first ayah of the page)
+          const firstAyah = data.data.ayahs[0];
+          setLastReadSurah({
+            number: firstAyah.surah.number,
+            name: firstAyah.surah.englishName,
+            ayah: firstAyah.numberInSurah
+          });
+        }
     } catch (error) {
       console.error('Error fetching page data:', error);
     } finally {

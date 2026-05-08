@@ -126,14 +126,14 @@ export default function PrayerTimes() {
 
       {/* Prayer list */}
       <div className="prayer-list">
-        {PRAYERS.map(({ key, label, icon }) => {
+        {PRAYERS.map(({ key, label, icon: Icon }) => {
           const isMain = MAIN_PRAYERS.includes(key);
           const isActive = currentPrayer === key;
           return (
             <div key={key} className={`prayer-row ${isActive ? 'active-prayer' : ''}`}
               style={{ opacity: !isMain ? 0.7 : 1 }}>
               <span className="prayer-row-icon" style={{ display: 'flex', alignItems: 'center', color: isActive ? 'white' : 'var(--primary)' }}>
-                <icon size={20} />
+                <Icon size={20} />
               </span>
               <span className="prayer-row-name">{label}</span>
               <span className="prayer-row-time">

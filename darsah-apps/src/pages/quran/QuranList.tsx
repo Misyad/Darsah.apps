@@ -9,7 +9,7 @@ export default function QuranList() {
   const navigate = useNavigate();
   const { lastReadSurah } = useApp();
   const [searchTerm, setSearchTerm] = useState('');
-  const [activeTab, setActiveTab] = useState<'surah' | 'juz'>('surah');
+  const [activeTab, setActiveTab] = useState<'surah' | 'juz' | 'halaman'>('surah');
 
   const filtered = surahList.filter(s =>
     s.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

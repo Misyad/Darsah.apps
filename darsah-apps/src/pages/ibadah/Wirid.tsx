@@ -66,7 +66,9 @@ export default function Wirid() {
           <div className="slide-up">
             <button onClick={() => setSelected(null)} style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 12, padding: '8px 16px', cursor: 'pointer', fontSize: 13, color: 'var(--text-secondary)', marginBottom: 16, fontWeight: 500 }}>← Kembali</button>
             <div className="card-elevated">
-              <div style={{ fontSize: 28, marginBottom: 8 }}>{item.emoji}</div>
+              <div style={{ width: 56, height: 56, borderRadius: 16, background: 'var(--primary-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary)', marginBottom: 16 }}>
+                <item.icon size={28} />
+              </div>
               <div style={{ fontWeight: 700, fontSize: 18, color: 'var(--text-primary)', marginBottom: 4 }}>{item.name}</div>
               <div style={{ fontSize: 12, color: 'var(--text-muted)', marginBottom: 16 }}>{item.desc}</div>
               <div style={{ background: 'var(--primary-xlight)', borderRadius: 12, padding: 16, marginBottom: 12 }}>
