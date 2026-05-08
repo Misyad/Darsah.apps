@@ -1,9 +1,9 @@
 "use client";
 
 import {
-  ArrowLeft,
+  Bell,
   BookOpen,
-  CircleHelp,
+  ChevronRight,
   Crown,
   Flame,
   Home,
@@ -11,9 +11,11 @@ import {
   Moon,
   Play,
   Search,
+  ShieldCheck,
   Sparkles,
   Star,
   Trophy,
+  UserRound,
 } from "lucide-react";
 
 const categories = [
@@ -21,153 +23,138 @@ const categories = [
     title: "Quran Knowledge",
     meta: "12 Questions",
     icon: BookOpen,
-    className: "quiz-card quiz-card-teal",
+    className: "category-card category-teal",
   },
   {
     title: "Duas & Fiqh",
     meta: "8 Questions",
     icon: Moon,
-    className: "quiz-card quiz-card-coral",
+    className: "category-card category-pink",
   },
   {
     title: "Islamic History",
     meta: "10 Questions",
     icon: Trophy,
-    className: "quiz-card quiz-card-violet",
+    className: "category-card category-purple",
   },
   {
     title: "Seerah Quiz",
     meta: "15 Questions",
     icon: Star,
-    className: "quiz-card quiz-card-blue",
+    className: "category-card category-blue",
   },
 ];
 
-const answers = ["Masjidil Haram", "Baitul Maqdis", "Madinah City", "Jabal Uhud"];
+const leaderboard = [
+  { name: "Ahmad", score: "980", rank: "01" },
+  { name: "Fatimah", score: "920", rank: "02" },
+  { name: "Hasan", score: "875", rank: "03" },
+];
 
-export default function QuizShowcase() {
+export default function QuizHome() {
   return (
-    <main className="quiz-showcase">
-      <section className="brand-panel" aria-label="Islamic Foundation Quiz App">
-        <div className="behance-pill">
-          <span>Be</span>
-          <small>Case Study</small>
-        </div>
-
-        <div className="seal-mark">
-          <div className="seal-inner">علم</div>
-        </div>
-        <p>Islamic Foundation</p>
-        <h1>Quiz App</h1>
-      </section>
-
-      <section className="phone-stage" aria-label="Quiz app screens">
-        <article className="phone phone-home" aria-label="Quiz category screen">
-          <div className="phone-topbar">
-            <div className="mini-brand">
-              <Sparkles size={14} />
-              <span>Quiz App</span>
-            </div>
-            <div className="coin-chip">
-              <Crown size={12} />
+    <main className="app-shell">
+      <section className="mobile-app" aria-label="Islamic Foundation Quiz App">
+        <header className="app-header">
+          <div className="brand-chip">
+            <Sparkles size={16} />
+            <span>Quiz App</span>
+          </div>
+          <div className="header-actions">
+            <button aria-label="Notifications">
+              <Bell size={18} />
+            </button>
+            <button className="coin-balance" aria-label="Coin balance">
+              <Crown size={14} />
               <span>420</span>
-            </div>
+            </button>
           </div>
+        </header>
 
-          <div className="hero-card">
-            <p>Choose a quiz to play</p>
-            <h2>Islamic World Knowledge</h2>
-            <span>Keep your learning streak alive today.</span>
-            <div className="kaaba-card" aria-hidden="true">
-              <div className="kaaba-gold" />
-            </div>
-          </div>
-
-          <div className="category-grid">
-            {categories.map((item) => (
-              <button className={item.className} key={item.title}>
-                <span className="card-icon">
-                  <item.icon size={17} />
-                </span>
-                <strong>{item.title}</strong>
-                <small>{item.meta}</small>
-              </button>
-            ))}
-          </div>
-
-          <nav className="bottom-nav" aria-label="Primary">
+        <section className="welcome-card">
+          <div className="welcome-copy">
+            <p>Assalamu&apos;alaikum</p>
+            <h1>Choose a quiz to play</h1>
+            <span>Keep your Islamic learning streak alive today.</span>
             <button>
-              <Menu size={17} />
-            </button>
-            <button className="active">
-              <Home size={17} />
-            </button>
-            <button>
-              <Search size={17} />
-            </button>
-          </nav>
-        </article>
-
-        <article className="phone phone-question" aria-label="Question screen">
-          <div className="question-header">
-            <button>
-              <ArrowLeft size={17} />
-            </button>
-            <strong>Islamic World</strong>
-            <button>
-              <CircleHelp size={17} />
-            </button>
-          </div>
-
-          <div className="question-card">
-            <div>
-              <span>Question 04</span>
-              <h2>Which city is the first qibla located in?</h2>
-            </div>
-            <div className="timer">15</div>
-          </div>
-
-          <div className="answer-list">
-            {answers.map((answer) => (
-              <button className={answer === "Baitul Maqdis" ? "selected" : ""} key={answer}>
-                {answer}
-              </button>
-            ))}
-          </div>
-
-          <button className="next-question">Next Question</button>
-
-          <div className="result-badge">
-            <span>1</span>
-            <strong>Right Answer</strong>
-          </div>
-        </article>
-
-        <article className="phone phone-start" aria-label="Start quiz screen">
-          <div className="start-pattern" />
-          <div className="start-content">
-            <div className="seal-mark large">
-              <div className="seal-inner">الله</div>
-            </div>
-            <p>Welcome to</p>
-            <h2>Islamic Foundation Quiz App</h2>
-            <button className="start-button">
               <Play size={15} fill="currentColor" />
-              Start Quiz
+              Start Daily Quiz
             </button>
-            <div className="level-row">
-              <button>Easy</button>
-              <button className="active">Medium</button>
-              <button>Hard</button>
-            </div>
           </div>
-        </article>
-      </section>
+          <div className="kaaba-illustration" aria-hidden="true">
+            <div className="kaaba-band" />
+            <div className="kaaba-door" />
+          </div>
+        </section>
 
-      <div className="floating-score" aria-label="Score streak">
-        <Flame size={18} />
-        <span>7 day streak</span>
-      </div>
+        <section className="section-heading">
+          <div>
+            <p>Explore</p>
+            <h2>Quiz Categories</h2>
+          </div>
+          <button aria-label="See all categories">
+            <ChevronRight size={19} />
+          </button>
+        </section>
+
+        <section className="category-grid" aria-label="Quiz categories">
+          {categories.map((item) => (
+            <button className={item.className} key={item.title}>
+              <span className="category-icon">
+                <item.icon size={22} />
+              </span>
+              <strong>{item.title}</strong>
+              <small>{item.meta}</small>
+            </button>
+          ))}
+        </section>
+
+        <section className="daily-progress">
+          <div className="progress-icon">
+            <Flame size={22} />
+          </div>
+          <div>
+            <p>Daily Streak</p>
+            <h2>7 days learning streak</h2>
+          </div>
+          <span>75%</span>
+        </section>
+
+        <section className="leaderboard-card">
+          <div className="section-heading compact">
+            <div>
+              <p>Top Learners</p>
+              <h2>Leaderboard</h2>
+            </div>
+            <ShieldCheck size={20} />
+          </div>
+
+          <div className="leaderboard-list">
+            {leaderboard.map((item) => (
+              <div className="leaderboard-row" key={item.rank}>
+                <span>{item.rank}</span>
+                <strong>{item.name}</strong>
+                <small>{item.score} pts</small>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <nav className="app-nav" aria-label="Primary navigation">
+          <button>
+            <Menu size={21} />
+          </button>
+          <button className="active">
+            <Home size={22} />
+          </button>
+          <button>
+            <Search size={21} />
+          </button>
+          <button>
+            <UserRound size={21} />
+          </button>
+        </nav>
+      </section>
     </main>
   );
 }
