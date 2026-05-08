@@ -6,7 +6,7 @@ services:
       context: ./islamic-super-app-backend
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "4001:3000"
     environment:
       - NODE_ENV=production
       - PORT=3000

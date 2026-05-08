@@ -48,7 +48,7 @@ pipeline {
                         echo "WARNING: Docker Compose not found. Falling back to manual docker run..."
                         docker stop ${APP_NAME}-backend ${APP_NAME}-frontend || true
                         docker rm ${APP_NAME}-backend ${APP_NAME}-frontend || true
-                        docker run -d --name ${APP_NAME}-backend -p 3000:3000 ${APP_NAME}-backend:latest
+                        docker run -d --name ${APP_NAME}-backend -p 4001:3000 ${APP_NAME}-backend:latest
                         docker run -d --name ${APP_NAME}-frontend -p 80:80 ${APP_NAME}-frontend:latest
                     fi
                 '''
