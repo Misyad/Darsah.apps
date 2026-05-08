@@ -35,9 +35,9 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying Application with Docker Compose...'
-                // Menggunakan docker-compose untuk menjalankan container di background
-                sh 'docker-compose down'
-                sh 'docker-compose up -d'
+                // Menggunakan docker compose untuk menjalankan container di background
+                sh 'docker compose down'
+                sh 'docker compose up -d'
             }
         }
     }
