@@ -1,0 +1,81 @@
+[
+  {
+    "category": "Muharram",
+    "prayers": [
+      {
+        "title": "Doa Awal Tahun",
+        "arabic": "اللَّهُمَّ أَنْتَ الأَبَدِيُّ القَدِيمُ الأَوَّلُ، وَعَلَى فَضْلِكَ العَظِيمِ وَكَرِيمِ جُودِكَ العَمِيمِ المُعَوَّلُ، وَهَذَا عَامٌ جَدِيدٌ قَدْ أَقْبَلَ، أَسْأَلُكَ العِصْمَةَ فِيهِ مِنَ الشَّيْطَانِ وَأَوْلِيَائِهِ، وَالعَوْنَ عَلَى هَذِهِ النَّفْسِ الأَمَّارَةِ بِالسُّوءِ، وَالاِشْتِغَالَ بِمَا يُقَرِّبُنِي إِلَيْكَ زُلْفَى، يَا ذَا الجَلالِ وَالإِكْرَامِ.",
+        "latin": "Allahumma Antal Abadiyyul Qadimul Awwal, wa 'ala fadhlikal 'azhimi wa karimi judikal 'amimil mu'awwal...",
+        "translation": "Ya Allah, Engkaulah yang abadi, yang qadim, yang awal..."
+      },
+      {
+        "title": "Doa Akhir Tahun",
+        "arabic": "اللَّهُمَّ مَا عَمِلْتُ فِى هَذِهِ السَّنَةِ مِمَّا نَهَيْتَنِى عَنْهُ فَلَمْ أَتُبْ مِنْهُ وَلَمْ تَرْضَهُ وَلَمْ تَنْسَهُ وَحَلُمْتَ عَلَىَّ بَعْدَ قُدْرَتِكَ عَلَى عُقُوبَتِى وَدَعَوْتَنِى إِلَى التَّوْبَةِ مِنْهُ بَعْدَ جُرْأَتِى عَلَى مَعْصِيَتِكَ فَإِنِّى أَسْتَغْفِرُكَ فَاغْفِرْ لِى",
+        "latin": "Allahumma ma 'amiltu fi hadzihis sanati mimma nahaitani 'anhu falam atub minhu...",
+        "translation": "Ya Allah, apa yang aku lakukan pada tahun ini dari apa yang Engkau larang..."
+      }
+    ]
+  },
+  {
+    "category": "Sya'ban",
+    "prayers": [
+      {
+        "title": "Doa Nisfu Sya'ban",
+        "arabic": "اللَّهُمَّ يَا ذَا الْمَنِّ وَلَا يُمَنُّ عَلَيْكَ، يَا ذَا الْجَلَالِ وَالإِكْرَامِ، يَا ذَا الطَّوْلِ وَالإِنْعَامِ، لَا إِلَهَ إِلَّا أَنْتَ ظَهْرَ اللَّاجِئينَ، وَجَارَ الْمُسْتَجِيرِينَ، وَأَمَانَ الْخَائِفِينَ.",
+        "latin": "Allahumma ya Dzal Manni wala yumannu 'alaik, ya Dzal Jalali wal Ikram...",
+        "translation": "Ya Allah, wahai Pemilik anugerah dan tidak ada yang memberi anugerah kepada-Mu..."
+      }
+    ]
+  },
+  {
+    "category": "Ramadhan",
+    "prayers": [
+      {
+        "title": "Doa Buka Puasa",
+        "arabic": "اللَّهُمَّ لَكَ صُمْتُ وَعَلَى رِزْقِكَ أَفْطَرْتُ ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ",
+        "latin": "Allahumma laka shumtu wa 'ala rizqika afthartu dzahabazh zhama'u wabtallatil 'uruqu...",
+        "translation": "Ya Allah, untuk-Mu aku berpuasa dan dengan rezeki-Mu aku berbuka..."
+      },
+      {
+        "title": "Doa Shalat Tarawih",
+        "arabic": "اللَّهُمَّ اجْعَلْنَا بِالْإِيمَانِ كَامِلِيْنَ، وَلِلْفَرَائِضِ مُؤَدِِّيْنَ، وَلِلصَّلَاةِ حَافِظِيْنَ، وَلِلزَّكَاةِ فَاعِلِيْنَ",
+        "latin": "Allahummaj'alna bil imani kamilin, wa lil fara'idhi mu'addin, wa lish shalati hafizhin...",
+        "translation": "Ya Allah, jadikanlah kami orang-orang yang sempurna imannya, yang menunaikan kewajiban..."
+      }
+    ]
+  },
+  {
+    "category": "Harian",
+    "prayers": [
+      {
+        "title": "Doa Bangun Tidur",
+        "arabic": "الْحَمْدُ لِلَّهِ الَّذِي أَحْيَانَا بَعْدَ مَا أَمَاتَنَا وَإِلَيْهِ النُّشُورُ",
+        "latin": "Alhamdulillahil ladzi ahyana ba'da ma amatana wa ilaihin nusyur",
+        "translation": "Segala puji bagi Allah yang telah menghidupkan kami setelah mematikan kami..."
+      },
+      {
+        "title": "Doa setelah Wudhu",
+        "arabic": "أَشْهَدُ أَنْ لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ وَأَشْهَدُ أَنَّ مُحَمَّدًا عَبْدُهُ وَرَسُولُهُ",
+        "latin": "Asyhadu alla ilaha illallahu wahdahu la syarika lahu wa asyhadu anna muhammadan 'abduhu wa rasuluhu",
+        "translation": "Aku bersaksi bahwa tidak ada Tuhan selain Allah..."
+      }
+    ]
+  },
+  {
+    "category": "Wirid & Ratib",
+    "prayers": [
+      {
+        "title": "Ratibul Haddad (Pembuka)",
+        "arabic": "الْفَاتِحَةُ إِلَى حَضْرَةِ النَّبِيِّ مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَآلِهِ وَسَلَّمَ...",
+        "latin": "Al-Fatihah ila hadhratin Nabiyyi Muhammadin...",
+        "translation": "Al-Fatihah kepada junjungan Nabi Muhammad..."
+      },
+      {
+        "title": "Wirdul Lathif (Pembuka)",
+        "arabic": "بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ. قُلْ هُوَ اللَّهُ أَحَدٌ. اللَّهُ الصَّمَدُ...",
+        "latin": "Bismillahirrahmanirrahim. Qul huwallahu ahad. Allahush shamad...",
+        "translation": "Dengan menyebut nama Allah Yang Maha Pengasih lagi Maha Penyayang..."
+      }
+    ]
+  }
+]

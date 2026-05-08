@@ -1,0 +1,9 @@
+{
+  "status": "success",
+  "data": {
+    "reciter": "Mishary Alafasy",
+    "resolution": "High Quality (320kbps)",
+    "surah_id": 1,
+    "audio_stream_url": "https://example.com/premium/surah-1-hq.mp3"
+  }
+}

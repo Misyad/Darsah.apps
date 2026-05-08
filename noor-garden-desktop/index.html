@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noor Garden Desktop UI</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="scaler">
+    <div class="layout-container">
+
+      <!-- =========================================
+           SCREEN 1: LEVEL SELECTION 
+           ========================================= -->
+      <div id="screen-levels" class="screen active">
+        <div class="top-bar">
+          <button class="btn btn-blue btn-icon-only">
+            <img src="/assets/ui/buttons/icon/icon_menu.png" alt="Menu"
+              onerror="this.style.display='none';this.parentNode.innerHTML='☰'" />
+          </button>
+          <button class="btn btn-green btn-icon-only">
+            <img src="/assets/ui/buttons/icon/icon_reload.png" alt="Reload"
+              onerror="this.style.display='none';this.parentNode.innerHTML='🔄'" />
+          </button>
+        </div>
+
+        <div class="center-content">
+          <div class="panel" style="width: 700px; height: 420px;">
+            <h1 style="font-size: 2.5rem; color: #D84315;">Noor Garden</h1>
+
+            <div class="level-grid">
+              <!-- JS generates 20 levels below. Pre-filled for CSS structure -->
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">1</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">2</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">3</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">4</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">5</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">6</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">7</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">8</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">9</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">10</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">11</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">12</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">13</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">14</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">15</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">16</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">17</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">18</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">19</button>
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">20</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-bar"></div> <!-- Empty spacer -->
+      </div>
+
+
+      <!-- =========================================
+           SCREEN 2: QUIZ SCREEN 
+           ========================================= -->
+      <div id="screen-quiz" class="screen">
+        <div class="top-bar"></div> <!-- Empty spacer -->
+
+        <div class="center-content">
+          <div class="panel" style="width: 700px; max-height: 480px;">
+            <h2 class="question-text">
+              What is the meaning of Al-Fatihah?
+            </h2>
+
+            <div class="quiz-options">
+              <button class="btn btn-blue" onclick="switchScreen('screen-result')">A. The Opening</button>
+              <button class="btn btn-green" onclick="switchScreen('screen-result')">B. The Light</button>
+              <button class="btn btn-yellow" onclick="switchScreen('screen-result')">C. The Peace</button>
+              <button class="btn btn-red" onclick="switchScreen('screen-result')">D. The Star</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-bar">
+          <button class="btn btn-blue btn-icon-only" onclick="switchScreen('screen-levels')">
+            <img src="/assets/ui/buttons/icon/icon_exit.png" alt="Back"
+              onerror="this.style.display='none';this.parentNode.innerHTML='⬅️'" />
+          </button>
+          <button class="btn btn-yellow btn-icon-only" onclick="switchScreen('screen-result')">
+            <img src="/assets/ui/buttons/icon/icon_play.png" alt="Skip"
+              onerror="this.style.display='none';this.parentNode.innerHTML='⏭️'" />
+          </button>
+        </div>
+      </div>
+
+
+      <!-- =========================================
+           SCREEN 3: RESULT SCREEN 
+           ========================================= -->
+      <div id="screen-result" class="screen">
+        <div class="top-bar"></div>
+
+        <div class="center-content">
+          <div class="panel" style="width: 500px; padding: 40px;">
+            <h1 class="result-title font-game">Excellent!</h1>
+            <h2 class="result-reward font-game">+30 XP</h2>
+
+            <div class="result-actions">
+              <button class="btn btn-blue" onclick="switchScreen('screen-quiz')">
+                <img src="/assets/ui/buttons/icon/icon_reload.png" alt="Retry" style="width:24px;height:24px"
+                  onerror="this.style.display='none'" /> Retry
+              </button>
+              <button class="btn btn-green" onclick="switchScreen('screen-levels')">
+                <img src="/assets/ui/buttons/icon/icon_ok.png" alt="OK" style="width:24px;height:24px"
+                  onerror="this.style.display='none'" /> Continue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottom-bar"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Scale container to always fit viewport while maintaining aspect ratio
+    function resize() {
+      const scaler = document.getElementById('scaler');
+      const scale = Math.min(
+        window.innerWidth / 900,
+        window.innerHeight / 600
+      );
+      scaler.style.transform = `scale(${scale})`;
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Screen navigation logic
+    function switchScreen(screenId) {
+      document.querySelectorAll('.screen').forEach(el => el.classList.remove('active'));
+      document.getElementById(screenId).classList.add('active');
+    }
+  </script>
+</body>
+</html>

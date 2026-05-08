@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "surah": "Al-Fatihah",
+    "ayah_count": 7,
+    "type": "Makkiyah"
+  },
+  {
+    "id": 2,
+    "surah": "Al-Baqarah",
+    "ayah_count": 286,
+    "type": "Madaniyah"
+  }
+]

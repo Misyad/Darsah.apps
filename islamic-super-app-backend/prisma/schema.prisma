@@ -1,0 +1,39 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             Int              @id @default(autoincrement())
+  email          String           @unique
+  name           String?
+  password       String
+  isPremium      Boolean          @default(false)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  readingHistory ReadingHistory[]
+  donationLogs   DonationLog[]
+}
+
+model ReadingHistory {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  surahId   Int      // ID Surah yang dibaca
+  ayahId    Int      // Ayat terakhir yang dibaca
+  timestamp DateTime @default(now())
+}
+
+model DonationLog {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  user          User     @relation(fields: [userId], references: [id])
+  amount        Float
+  paymentMethod String   // e.g., "QRIS", "Virtual Account"
+  status        String   // e.g., "PENDING", "SUCCESS", "FAILED"
+  createdAt     DateTime @default(now())
+}

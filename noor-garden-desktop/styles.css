@@ -1,0 +1,235 @@
+/* Reset & Base Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@700;900&display=swap');
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("/assets/ui/background/bg_main.png");
+  background-size: cover;
+  background-position: center;
+  background-color: #80CB83;
+  /* fallback */
+  font-family: 'Nunito', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1,
+h2,
+h3,
+.font-game {
+  font-family: 'Fredoka One', cursive;
+}
+
+/* Scaling Container */
+#scaler {
+  transform-origin: center center;
+}
+
+.layout-container {
+  width: 900px;
+  height: 600px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Screen Management */
+.screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.screen.active {
+  display: flex;
+}
+
+/* Components: Panel */
+.panel {
+  border-image-source: url('/assets/ui/panels/panel_main.png');
+  border-image-slice: 40 fill;
+  /* Adjust slice based on actual asset dimensions */
+  border-image-width: 40px;
+  border-image-repeat: stretch;
+  border-style: solid;
+  border-color: transparent;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #5D4037;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Components: Buttons */
+.btn {
+  border-style: solid;
+  border-color: transparent;
+  border-image-slice: 24 fill;
+  /* Adjust based on button assets */
+  border-image-width: 24px;
+  border-image-repeat: stretch;
+  padding: 0 20px;
+  /* Vertical padding provided by border-image-width */
+  min-height: 50px;
+  color: white;
+  font-weight: 900;
+  font-size: 1.2rem;
+  font-family: 'Fredoka One', cursive;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background-color: transparent;
+  transition: filter 0.1s, transform 0.1s;
+  outline: none;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+.btn-blue {
+  border-image-source: url('/assets/ui/buttons/base/btn_blue.png');
+}
+
+.btn-red {
+  border-image-source: url('/assets/ui/buttons/base/btn_red.png');
+}
+
+.btn-green {
+  border-image-source: url('/assets/ui/buttons/base/btn_green.png');
+}
+
+.btn-yellow {
+  border-image-source: url('/assets/ui/buttons/base/btn_yellow.png');
+  color: #5D4037;
+  text-shadow: 0 2px 2px rgba(255, 255, 255, 0.6);
+}
+
+/* Icon-only Button */
+.btn-icon-only {
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  border-image-width: 20px;
+}
+
+.btn-icon-only img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+/* Top Bar */
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 80px;
+}
+
+/* Center Content Area */
+.center-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 0;
+  /* Prevent overflow */
+}
+
+/* Bottom Bar */
+.bottom-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 80px;
+}
+
+/* Specific Layouts */
+/* Screen 1: Level Grid */
+.level-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.level-grid .btn {
+  min-height: 60px;
+  font-size: 1.5rem;
+  padding: 0;
+}
+
+/* Screen 2: Quiz */
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.quiz-options .btn {
+  width: 100%;
+  min-height: 64px;
+}
+
+.question-text {
+  font-size: 1.8rem;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 10px;
+  color: #3E2723;
+}
+
+/* Screen 3: Result */
+.result-title {
+  font-size: 3rem;
+  color: #E65100;
+  margin-bottom: 10px;
+}
+
+.result-reward {
+  font-size: 2rem;
+  color: #2E7D32;
+  margin-bottom: 30px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 20px;
+}

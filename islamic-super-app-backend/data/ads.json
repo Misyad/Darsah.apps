@@ -1,0 +1,18 @@
+[
+  {
+    "id": 101,
+    "advertiser": "Umrah Berkah Travel",
+    "title": "Paket Umrah Plus Aqsa 12 Hari",
+    "description": "Berangkat tanpa antri dengan maskapai Saudia.",
+    "cta_url": "https://example.com/umrah",
+    "banner_image": "https://placehold.co/600x200/png"
+  },
+  {
+    "id": 102,
+    "advertiser": "Bank Syariah Nusantara",
+    "title": "Buka Rekening ZISWAF Tanpa Biaya Admin",
+    "description": "Kemudahan bersedekah di ujung jari Anda.",
+    "cta_url": "https://example.com/bank",
+    "banner_image": "https://placehold.co/600x200/png"
+  }
+]
