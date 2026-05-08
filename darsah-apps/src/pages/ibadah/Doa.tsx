@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { SubHeader } from '../../components/layout/AppHeader';
 import { doaList } from '../../data/staticData';
+import { endpoints } from '../../utils/api';
 
 const CATEGORIES = ['Semua', 'Harian', 'Shalat', 'Muharram', 'Rajab', "Sya'ban", 'Ramadhan', 'Keluarga', 'Masjid', 'Tidur', 'Perjalanan', 'Makan & Minum', 'Kamar Mandi'];
 
@@ -9,8 +10,26 @@ export default function Doa() {
   const [search, setSearch] = useState('');
   const [category, setCategory] = useState('Semua');
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [doaData, setDoaData] = useState(doaList);
+  const [loading, setLoading] = useState(false);
 
-  const filtered = doaList.filter(d =>
+  React.useEffect(() => {
+    const fetchDoas = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(endpoints.duas);
+        const data = await res.json();
+        if (Array.isArray(data)) setDoaData(data);
+      } catch (err) {
+        console.error('Failed to fetch from backend, using fallback:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchDoas();
+  }, []);
+
+  const filtered = doaData.filter(d =>
     (category === 'Semua' || d.category === category) &&
     (d.title.toLowerCase().includes(search.toLowerCase()) || d.arabic.includes(search))
   );

@@ -17,7 +17,15 @@ app.use(cors());
 app.use(helmet());
 app.use(express.json());
 
-const dataPath = path.join(__dirname, '../../data');
+const rootPath = process.cwd();
+const dataPath = path.join(rootPath, 'data');
+const publicPath = path.join(rootPath, 'public');
+
+app.use(express.static(publicPath));
+
+app.get('/', (req: Request, res: Response) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 // ==========================================
 // RUTE RANGKAIAN 1 (Data Statis / Freemium)
