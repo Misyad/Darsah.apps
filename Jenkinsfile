@@ -25,7 +25,7 @@ pipeline {
 
         stage('Build & Test Frontend') {
             steps {
-                dir('darsah-apps') {
+                dir('islamic-super-app-web') {
                     echo 'Building Frontend Image...'
                     sh 'docker build -t ${APP_NAME}-frontend:latest .'
                 }
@@ -49,7 +49,7 @@ pipeline {
                         docker stop ${APP_NAME}-backend ${APP_NAME}-frontend || true
                         docker rm ${APP_NAME}-backend ${APP_NAME}-frontend || true
                         docker run -d --name ${APP_NAME}-backend -p 4001:3000 ${APP_NAME}-backend:latest
-                        docker run -d --name ${APP_NAME}-frontend -p 80:80 ${APP_NAME}-frontend:latest
+                        docker run -d --name ${APP_NAME}-frontend -p 80:3000 ${APP_NAME}-frontend:latest
                     fi
                 '''
             }
