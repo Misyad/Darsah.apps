@@ -46,8 +46,25 @@ pipeline {
                         docker compose up -d
                     else
                         echo "WARNING: Docker Compose not found. Falling back to manual docker run..."
-                        docker stop ${APP_NAME}-backend ${APP_NAME}-frontend || true
-                        docker rm ${APP_NAME}-backend ${APP_NAME}-frontend || true
+                        for container in ${APP_NAME}-backend ${APP_NAME}-frontend; do
+                            docker rm -f "$container" || true
+
+                            for i in $(seq 1 15); do
+                                if ! docker ps -a --format '{{.Names}}' | grep -Fx "$container" >/dev/null 2>&1; then
+                                    break
+                                fi
+
+                                echo "Waiting for $container to be removed..."
+                                sleep 2
+                            done
+
+                            if docker ps -a --format '{{.Names}}' | grep -Fx "$container" >/dev/null 2>&1; then
+                                echo "ERROR: $container still exists after removal wait."
+                                docker ps -a --filter "name=^/${container}$"
+                                exit 1
+                            fi
+                        done
+
                         docker run -d --name ${APP_NAME}-backend -p 4001:3000 ${APP_NAME}-backend:latest
                         docker run -d --name ${APP_NAME}-frontend -p 80:3000 ${APP_NAME}-frontend:latest
                     fi
