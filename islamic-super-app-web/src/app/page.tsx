@@ -3,152 +3,186 @@
 import {
   Bell,
   BookOpen,
+  CalendarDays,
   ChevronRight,
-  Crown,
-  Flame,
+  Compass,
+  HandHeart,
   Home,
+  MapPin,
   Menu,
+  MessageCircle,
   Moon,
-  Play,
+  Newspaper,
+  Radio,
   Search,
-  ShieldCheck,
   Sparkles,
   Star,
-  Trophy,
   UserRound,
+  Wallet,
 } from "lucide-react";
 
-const categories = [
+const featureItems = [
+  { label: "Al-Qur'an", icon: BookOpen, className: "feature-quran" },
+  { label: "Jadwal Shalat", icon: Moon, className: "feature-prayer" },
+  { label: "Arah Kiblat", icon: Compass, className: "feature-qibla" },
+  { label: "Doa & Wirid", icon: MessageCircle, className: "feature-dua" },
+  { label: "Zakat", icon: Wallet, className: "feature-zakat" },
+  { label: "Kalender", icon: CalendarDays, className: "feature-calendar" },
+  { label: "Kajian", icon: Radio, className: "feature-kajian" },
+  { label: "Artikel", icon: Newspaper, className: "feature-article" },
+];
+
+const prayerTimes = [
+  { name: "Subuh", time: "04:32" },
+  { name: "Dzuhur", time: "11:54" },
+  { name: "Ashar", time: "15:14" },
+  { name: "Maghrib", time: "17:49" },
+  { name: "Isya", time: "19:01" },
+];
+
+const articles = [
   {
-    title: "Quran Knowledge",
-    meta: "12 Questions",
-    icon: BookOpen,
-    className: "category-card category-teal",
+    tag: "Fiqih",
+    title: "Tuntunan niat puasa sunnah dan adab harian",
+    meta: "5 menit baca",
   },
   {
-    title: "Duas & Fiqh",
-    meta: "8 Questions",
-    icon: Moon,
-    className: "category-card category-pink",
-  },
-  {
-    title: "Islamic History",
-    meta: "10 Questions",
-    icon: Trophy,
-    className: "category-card category-purple",
-  },
-  {
-    title: "Seerah Quiz",
-    meta: "15 Questions",
-    icon: Star,
-    className: "category-card category-blue",
+    tag: "Khutbah",
+    title: "Menjaga amanah keluarga dan lingkungan",
+    meta: "Naskah Jumat",
   },
 ];
 
-const leaderboard = [
-  { name: "Ahmad", score: "980", rank: "01" },
-  { name: "Fatimah", score: "920", rank: "02" },
-  { name: "Hasan", score: "875", rank: "03" },
-];
-
-export default function QuizHome() {
+export default function SuperAppHome() {
   return (
     <main className="app-shell">
-      <section className="mobile-app" aria-label="Islamic Foundation Quiz App">
+      <section className="mobile-app" aria-label="NU style Islamic super app">
         <header className="app-header">
-          <div className="brand-chip">
-            <Sparkles size={16} />
-            <span>Quiz App</span>
+          <div>
+            <p>Assalamu&apos;alaikum</p>
+            <h1>Darsah Apps</h1>
           </div>
           <div className="header-actions">
+            <button aria-label="Search">
+              <Search size={18} />
+            </button>
             <button aria-label="Notifications">
               <Bell size={18} />
-            </button>
-            <button className="coin-balance" aria-label="Coin balance">
-              <Crown size={14} />
-              <span>420</span>
             </button>
           </div>
         </header>
 
-        <section className="welcome-card">
-          <div className="welcome-copy">
-            <p>Assalamu&apos;alaikum</p>
-            <h1>Choose a quiz to play</h1>
-            <span>Keep your Islamic learning streak alive today.</span>
-            <button>
-              <Play size={15} fill="currentColor" />
-              Start Daily Quiz
-            </button>
+        <section className="hero-card">
+          <div className="hero-copy">
+            <span className="location-chip">
+              <MapPin size={14} />
+              Jakarta, Indonesia
+            </span>
+            <h2>Maghrib 17:49</h2>
+            <p>Waktu shalat berikutnya dalam 02j 11m. Tetap terhubung dengan ibadah harianmu.</p>
           </div>
-          <div className="kaaba-illustration" aria-hidden="true">
-            <div className="kaaba-band" />
-            <div className="kaaba-door" />
+          <div className="mosque-illustration" aria-hidden="true">
+            <div className="mosque-dome" />
+            <div className="mosque-body" />
+            <div className="mosque-minaret left" />
+            <div className="mosque-minaret right" />
           </div>
+        </section>
+
+        <section className="quick-row" aria-label="Daily quick actions">
+          <button>
+            <Sparkles size={18} />
+            <span>Ayat Hari Ini</span>
+          </button>
+          <button>
+            <HandHeart size={18} />
+            <span>Infaq Cepat</span>
+          </button>
+          <button>
+            <Star size={18} />
+            <span>Bookmark</span>
+          </button>
         </section>
 
         <section className="section-heading">
           <div>
-            <p>Explore</p>
-            <h2>Quiz Categories</h2>
+            <p>Layanan</p>
+            <h2>Fitur Utama</h2>
           </div>
-          <button aria-label="See all categories">
+          <button aria-label="Lihat semua fitur">
             <ChevronRight size={19} />
           </button>
         </section>
 
-        <section className="category-grid" aria-label="Quiz categories">
-          {categories.map((item) => (
-            <button className={item.className} key={item.title}>
-              <span className="category-icon">
+        <section className="feature-grid" aria-label="Fitur utama">
+          {featureItems.map((item) => (
+            <button className="feature-card" key={item.label}>
+              <span className={item.className}>
                 <item.icon size={22} />
               </span>
-              <strong>{item.title}</strong>
-              <small>{item.meta}</small>
+              <strong>{item.label}</strong>
             </button>
           ))}
         </section>
 
-        <section className="daily-progress">
-          <div className="progress-icon">
-            <Flame size={22} />
-          </div>
-          <div>
-            <p>Daily Streak</p>
-            <h2>7 days learning streak</h2>
-          </div>
-          <span>75%</span>
-        </section>
-
-        <section className="leaderboard-card">
+        <section className="prayer-card">
           <div className="section-heading compact">
             <div>
-              <p>Top Learners</p>
-              <h2>Leaderboard</h2>
+              <p>Hari Ini</p>
+              <h2>Jadwal Shalat</h2>
             </div>
-            <ShieldCheck size={20} />
+            <Moon size={20} />
           </div>
-
-          <div className="leaderboard-list">
-            {leaderboard.map((item) => (
-              <div className="leaderboard-row" key={item.rank}>
-                <span>{item.rank}</span>
-                <strong>{item.name}</strong>
-                <small>{item.score} pts</small>
+          <div className="prayer-list">
+            {prayerTimes.map((item) => (
+              <div className={item.name === "Maghrib" ? "prayer-item active" : "prayer-item"} key={item.name}>
+                <span>{item.name}</span>
+                <strong>{item.time}</strong>
               </div>
             ))}
           </div>
         </section>
 
+        <section className="daily-card">
+          <p>Doa Harian</p>
+          <h2>Allahumma inni as&apos;aluka &apos;ilman nafi&apos;an</h2>
+          <span>Ya Allah, aku memohon kepada-Mu ilmu yang bermanfaat.</span>
+        </section>
+
+        <section className="article-card">
+          <div className="section-heading compact">
+            <div>
+              <p>Khazanah</p>
+              <h2>Artikel & Kajian</h2>
+            </div>
+            <Newspaper size={20} />
+          </div>
+
+          <div className="article-list">
+            {articles.map((item) => (
+              <article className="article-item" key={item.title}>
+                <span>{item.tag}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.meta}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <nav className="app-nav" aria-label="Primary navigation">
-          <button>
-            <Menu size={21} />
-          </button>
           <button className="active">
             <Home size={22} />
           </button>
           <button>
-            <Search size={21} />
+            <BookOpen size={21} />
+          </button>
+          <button>
+            <Compass size={21} />
+          </button>
+          <button>
+            <Menu size={21} />
           </button>
           <button>
             <UserRound size={21} />
